@@ -116,10 +116,13 @@
   }
   .booking-frame-wrap iframe{
     width:100%;
-    min-height:640px;
+    height:1900px;
     border:0;
     border-radius:14px;
     display:block;
+  }
+  @media (max-width:700px){
+    .booking-frame-wrap iframe{ height:2300px; }
   }
 
   .help-note{
@@ -204,7 +207,7 @@
       <p>Formulár nižšie je súčasťou nášho rezervačného systému — vyberte si termín priamo tu.</p>
     </div>
     <div class="booking-frame-wrap">
-      <iframe style="min-width:100%; min-height:640px; border:0;" src="https://booqme.sk/sk/rezervacia/avs" allow="payment" title="Rezervačný formulár DigiStart"></iframe>
+      <iframe style="min-width:100%; min-height:1900px; border:0;" src="https://booqme.sk/sk/rezervacia/avs" allow="payment" title="Rezervačný formulár DigiStart" scrolling="no"></iframe>
     </div>
   </div>
 
@@ -220,6 +223,24 @@
 <footer class="site-footer">
   © 2026 DigiStart · Akadémia digitálneho vzdelávania · Piešťany
 </footer>
+
+<script>
+  // Best-effort iframe height auto-adjust. If booqme.sk is cross-origin (it is),
+  // the browser blocks reading its content height — this safely does nothing in that case,
+  // and the fixed height set in CSS above is used as a reliable fallback.
+  (function(){
+    var frame = document.querySelector('.booking-frame-wrap iframe');
+    if(!frame) return;
+    frame.addEventListener('load', function(){
+      try{
+        var h = frame.contentWindow.document.body.scrollHeight;
+        if(h && h > 300){ frame.style.height = (h + 40) + 'px'; }
+      } catch(e){
+        // Cross-origin — expected. Fixed height from CSS remains in effect.
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>

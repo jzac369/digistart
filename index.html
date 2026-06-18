@@ -277,27 +277,39 @@
 
   /* ===== Kurzy ===== */
   .course-grid{
-    display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:30px;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:30px;
   }
   .course-card{
     background:#fff; border-radius:20px; padding:30px 28px;
     box-shadow:0 12px 28px rgba(23,55,94,0.10);
     border-top:6px solid var(--sky);
+    display:flex; flex-direction:column;
   }
   .course-card:nth-child(2){ border-top-color:var(--gold); }
   .course-card:nth-child(3){ border-top-color:var(--coral); }
   .course-card:nth-child(4){ border-top-color:var(--teal); }
-  .course-card h3{ font-size:22px; margin-bottom:8px; }
+  .course-card:nth-child(5){ border-top-color:var(--navy); }
+  .course-card .badge-popular{
+    display:inline-block; background:var(--gold); color:#fff; font-size:12.5px; font-weight:700;
+    padding:4px 11px; border-radius:999px; margin-bottom:10px; width:fit-content;
+  }
+  .course-card h3{ font-size:21px; margin-bottom:8px; }
   .course-card .meta{
-    display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;
+    display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;
   }
   .course-card .meta span{
-    font-size:14px; font-weight:700; color:var(--navy);
-    background:var(--paper-deep); padding:5px 12px; border-radius:999px;
+    font-size:13.5px; font-weight:700; color:var(--navy);
+    background:var(--paper-deep); padding:5px 11px; border-radius:999px;
   }
-  .course-card ul{ margin:0; padding-left:20px; font-size:16.5px; color:#4a4944; }
-  .course-card ul li{ margin-bottom:6px; }
-  @media (max-width:880px){ .course-grid{ grid-template-columns:1fr; } }
+  .course-card p.short-desc{ font-size:16px; color:#4a4944; margin:0 0 18px; flex-grow:1; }
+  .course-card .course-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-weight:700; font-size:15.5px; color:var(--navy); text-decoration:none;
+    margin-top:auto;
+  }
+  .course-card .course-link:hover{ color:var(--sky); }
+  @media (max-width:980px){ .course-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:700px){ .course-grid{ grid-template-columns:1fr; } }
 
   .course-note{
     margin-top:26px; background:var(--paper-deep); border-radius:16px;
@@ -576,54 +588,45 @@
         <span class="eyebrow">Aktuálna ponuka 2026</span>
         <h2>Vyberte si kurz podľa potreby</h2>
         <svg class="brush-underline" viewBox="0 0 170 18"><path d="M2,12 C30,2 60,16 90,8 C120,1 150,14 168,6" stroke="#D4A017" stroke-width="6" fill="none" stroke-linecap="round"/></svg>
-        <p>Všetky kurzy trvajú približne 3 hodiny, prebiehajú v Piešťanoch v malých skupinách a zahŕňajú tlačené materiály, malé občerstvenie aj certifikát o absolvovaní.</p>
+        <p>Kurzy prebiehajú v malých skupinách (ideálne 6 účastníkov) vo viacerých mestách, vrátane tlačených materiálov a certifikátu o absolvovaní. Kliknutím na kurz si pozriete plné podrobnosti.</p>
       </div>
 
       <div class="course-grid">
         <div class="course-card reveal">
-          <h3>Začíname pracovať s umelou inteligenciou</h3>
-          <div class="meta"><span>Začiatočníci</span><span>Seniori</span><span>3 hodiny</span></div>
-          <ul>
-            <li>Ako AI prakticky využiť aj v seniorskom veku</li>
-            <li>Užitočné AI aplikácie pre mobil a tablet</li>
-            <li>Bezpečné používanie AI nástrojov</li>
-            <li>Praktické cvičenie, diskusia a kvíz</li>
-          </ul>
+          <span class="badge-popular">⭐ Najpopulárnejší</span>
+          <h3>Začíname s umelou inteligenciou</h3>
+          <div class="meta"><span>Seniori</span><span>Začiatočníci</span><span>3 hodiny</span></div>
+          <p class="short-desc">AI ako jednoduchý a užitočný pomocník pre každodenný život — praktické aplikácie, bezpečnosť a základy promptovania.</p>
+          <a class="course-link" href="kurzy.html#ai">Viac informácií →</a>
         </div>
         <div class="course-card reveal">
-          <h3>Začíname pracovať s tabletom</h3>
-          <div class="meta"><span>Začiatočníci</span><span>Seniori</span><span>3 hodiny</span></div>
-          <ul>
-            <li>Ovládanie a nastavenia tabletu</li>
-            <li>Užitočné aplikácie pre seniorov</li>
-            <li>Práca s internetom a online bezpečnosť</li>
-            <li>Tvorba silných hesiel</li>
-          </ul>
+          <h3>Mobil a tablet bez stresu + bezpečný internet</h3>
+          <div class="meta"><span>Seniori</span><span>Začiatočníci</span><span>3 hodiny</span></div>
+          <p class="short-desc">Istota pri používaní mobilu a tabletu, práca s internetom, online bezpečnosť a rozpoznávanie hoaxov a podvodov.</p>
+          <a class="course-link" href="kurzy.html#mobil-tablet">Viac informácií →</a>
         </div>
         <div class="course-card reveal">
-          <h3>Všetko o e-maile a komunikácii</h3>
-          <div class="meta"><span>Začiatočníci</span><span>Seniori</span><span>3 hodiny</span></div>
-          <ul>
-            <li>Založenie e-mailového účtu v slovenčine</li>
-            <li>Posielanie a prijímanie správ, prílohy</li>
-            <li>Ochrana proti spamu</li>
-            <li>Organizácia e-mailov v mobile</li>
-          </ul>
+          <h3>Séria piatich 2-hodinových workshopov</h3>
+          <div class="meta"><span>Seniori</span><span>Postupný program</span><span>5× 2 hodiny</span></div>
+          <p class="short-desc">Tablet, aplikácie, internet, online bezpečnosť a umelá inteligencia — rozdelené do 5 modulov v pokojnom tempe.</p>
+          <a class="course-link" href="kurzy.html#seria-modulov">Viac informácií →</a>
         </div>
         <div class="course-card reveal">
-          <h3>Základy práce s počítačom</h3>
-          <div class="meta"><span>Začiatočníci</span><span>Seniori</span><span>3 hodiny</span></div>
-          <ul>
-            <li>Úvod do práce s notebookom/PC</li>
-            <li>Prehliadanie webu a vyhľadávanie</li>
-            <li>Silné heslá a ochrana súkromia</li>
-            <li>Jednoduché riešenie problémov</li>
-          </ul>
+          <h3>Digitálny klub seniorov</h3>
+          <div class="meta"><span>Seniori</span><span>Pravidelné stretnutia</span><span>Pripravujeme</span></div>
+          <p class="short-desc">Pravidelné 2-hodinové stretnutia 2× mesačne v Piešťanoch, Nitre, Novom Meste nad Váhom a Trenčíne.</p>
+          <a class="course-link" href="kurzy.html#digitalny-klub">Viac informácií →</a>
+        </div>
+        <div class="course-card reveal">
+          <h3>Individuálne školenie v oblasti IT</h3>
+          <div class="meta"><span>Na požiadanie</span><span>Všetky úrovne</span></div>
+          <p class="short-desc">Školenie presne podľa vašich potrieb — obsah, miesto a rozsah dohodneme individuálne.</p>
+          <a class="course-link" href="kurzy.html#individualne">Viac informácií →</a>
         </div>
       </div>
 
       <div class="course-note">
-        🎓 <strong>Pripravujeme:</strong> Digitálny klub seniorov (2-hodinové stretnutia 2× mesačne) a individuálne IT školenia na požiadanie — podľa vašich potrieb a tempa.
+        📖 Chcete vidieť plné podrobnosti o obsahu, výstupoch a priebehu každého kurzu? <a href="kurzy.html" style="color:var(--navy); font-weight:700;">Pozrite si všetky kurzy →</a>
       </div>
     </div>
   </section>
